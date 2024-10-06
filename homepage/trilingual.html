@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <link href="shared.css" rel="stylesheet">
+        <link href="projectpage.css" rel="stylesheet">
+        <title>Trilingual</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbarText">
+                <h1><b>Aaron Brey</b></h1>
+                <h1 id="textColorOffWhite">Technical Designer</h1>
+                <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
+                <a href="abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+            </div>
+            <div class="navigationButtons">
+                <button class="singleNavButton" onclick="window.location.href='index.html';"><b>Home</b></button>
+                <button class="resumeNavButton"><b>Resume</b></button>
+                <button class="singleNavButton" onclick="window.location.href='about.html';"><b>About</b></button>
+            </div>
+
+            <script>
+                document.querySelector(".resumeNavButton").onclick = function() {
+                    window.open('OnlineResume.pdf', '_blank');
+                }
+            </script>
+        </header>
+
+        <main>
+
+
+
+            <div class="centerDiv">
+                <h1>Trilingual</h1>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="TriDemoVid.mp4"></video>
+            </div>
+
+
+
+            <div class="floatParent">
+                <div class="floatChild">
+                    <ul>
+                        <li>Platform: PC</li>
+                        <li>Software: Unreal Engine, Jira,
+                            Trello, Perforce
+                        </li>
+                        <li>Creation Length: 4 months</li>
+                        <li>Playtime: 1-2 hours</li>
+                        <li><a href="https://4ullstop.itch.io/trilingual">Link</a></li>
+                    </ul>
+                </div>
+
+                <div class="floatChild">
+                    <p class="textBox">
+                        Trilingual is a first-person puzzle game where the
+                        core gameplay consists of exploring and determining the
+                        definitions of an alien language based on context clues
+                        and various level mechanics.
+                    </p>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="leftAdjusted">
+                <h3>Responsibilities</h3>
+
+                <ul>
+                    <li>Designed and implemented mechanics including:
+                        <ul>
+                            <li>Rune drawing mechanic.</li>
+                            <li>Rune scanning functionality.</li>
+                        </ul>
+                    </li>
+                    <li>Designed and implemented City/Garden/Market Level.</li>
+                    <li>Lead team by:
+                        <ul>
+                            <li>Organizing team meetings.</li>
+                            <li>Ensuring work was done effectively and efficiently.</li>
+                            <li>Steer team to better design/coding techniques.</li>
+                            <li>Communicate with art team to develop conceptualized assets.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="blogSection">
+                <p>For a more in depth dissection of the game's design...</p>
+                <button id="blog">Blog Post</button>
+                <script>
+                    document.querySelector("#blog").onclick = function() {
+                        window.open('https://medium.com/@abrey2o3/the-design-of-trilingual-c666e826f8da', '_blank');
+                    }
+                </script>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3>Pre-Production</h3></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild"><video loop muted autoplay playsinline class="refVid"><source src="ProtoGifTri.mp4"></video></div>
+                <div class="floatChild"><video loop muted autoplay playsinline class="refVid"><source src="COSRef.mp4"></video></div>
+            </div>
+
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    A prototype was developed in one week drawing inspiration from Chants of Sennaar's
+                    mechanics and gameplay loop. Initial player experience was frustrating due
+                    to the lack of direction and feedback. Despite this, the core intent was one
+                    that provided players with profound epiphany. This would be the guide for
+                    subsequent design decisions throughout development.
+                </p>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3>The Paper Process</h3></div>
+            <div class="centerDiv"><p class="textBoxLargeCenter">
+                I began all design by drawing out ideas on paper, whether for systems,
+                levels, or mechanics. This kept the design process on track and prevented
+                distractions. This also allowed for easier implementation during the creation
+                process.
+            </p></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <img src="Tri_01.jpg" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
+                </div>
+                <div class="floatChild">
+                    <p style="padding-top:50px; text-align:left">
+                        A simplified prototyped version of the various
+                        levels of communication to achieve our rune scanning and
+                        guessing system.
+                    </p>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent">
+                <div class="floatChild">
+                    <p style="text-align:right; padding-right:30px; padding-top:100px;">
+                        Paper prototyping was also used during early
+                        brainstorming sessions. I would write down various
+                        ideas for puzzle mechanics pushing the promising ones
+                        to more brainstorming time and eliminating ideas that
+                        were lacking.
+                    </p>
+                </div>
+                <div class="floatChild">
+                    <img src="TriCollage.png" class="collageImage" alt="Collage of paper prototypes for puzzle mechanics">
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3>Mechanic Development</h3></div>
+
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    Balancing the emphasis on deciphering alien text while introducing new and engaging
+                    player interactions was a significant challenge during this phase of development.
+                    We realized we needed to be cautious in creating new mechanics so that they would not
+                    overshadow the game's core loop. My approach to solving this problem invovled the development
+                    of a tile-flipping system which enabled players to "draw" the rune through a mouse click
+                    based on the context clues in the environment. These context clues would also aid in the
+                    understanding of the rune's definition.
+                </p>
+            </div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <video loop muted autoplay playsinline class="refVid"><source src="TriGif_01.mp4"></video>
+                </div>
+                <div class="floatChild">
+                    <p style="text-align:left; padding-top:40px;">
+                        Throughout its development, I prioritized simplifying the
+                        implementation of the mechanic. This allowed me to
+                        concentrate on enhancing the player's learning experience within
+                        the mechanic's rules.
+                    </p>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <p style="text-align:right; padding-top:40px;">This system was implemented
+                        through a multi dimensional struct with an XY coordinate system.
+                        You simply plug in the X and Y locations of the correct tiles with the
+                        rest of the incorrect tiles filling in automatically.
+                    </p>
+                </div>
+                <div class="floatChild">
+                    <img src="TileDetails.png" class="refVid" alt="Details panel in Unreal Engine displaying the 2D structs with XY Coordinate system">
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <img src="DrawTile.png" class="refVid" alt="Image of a square in Unreal Engine blueprint editor representing a tile">
+                </div>
+                <div class="floatChild">
+                    <p style="text-align:left; padding-top:40px;">
+                        Tiles spawned based on coordinates, and each was programmed to recognize
+                        correctness. When clicked the "manager" blueprint would record
+                        the location of the tile and, after reaching a limit, evaluated if all correct
+                        tiles were flipped, providing feedback accordingly.
+                    </p>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3 id="textColorPink">Core Loop Mechanic Development</h3></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="padding:20px">
+                    <video loop muted autoplay playsinline class="refVid"><source src="ScanningEx.mp4"></video>
+                    <p>Decoding starts in the player. Here it's recognized if the item scanned was a rune.</p>
+                </div>
+                <div class="floatChild" style="padding:20px">
+                    <img src="Brain.png" class="refVid" alt="Image of the gamemode displaying all of the words in the Thesaurus">
+                    <p>I utilized the gamemode to be the main brain of the operation. Once scanned, the run reports it's value and transmits it's data to the gamemode.</p>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="padding:20px">
+                    <img src="HUDReport.png" class="refVid" alt="Image of the Unreal Engine blueprint editor of nodes in the HUD blueprint">
+                    <p>The gamemode would then report the proper information to the HUD
+                        where the menu for guessing would appear.
+                    </p>
+                </div>
+                <div class="floatChild" style="padding:20px">
+                    <img src="Comparison.png" class="refVid" alt="An image of the comaparison operation where the input word is compared to the thesaurus">
+                    <p>
+                        After inputting a guess, it's sent back to the gamemode for proper
+                        evaluation which would result in further communications depending on this
+                        result. This flow of information allowed for easy implementation of the new
+                        runes which was crucial to the development given the development length.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

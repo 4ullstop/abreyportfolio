@@ -1,0 +1,72 @@
+.homeMain
+{
+    background-image: linear-gradient(rgba(168, 22, 109, 1), rgba(248, 251, 229, 1));
+}
+
+.projectButton
+{
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    transition-duration: 0.4s;
+}
+
+.projectButtonText
+{
+    padding-top: 15px;
+    display: block;
+    font-size: 24px;
+    padding-bottom: 5px;
+    font-family: 'Space Grotesk';
+}
+
+#remainBackground
+{
+    background-color: #F8FBE5;
+}
+
+.projectButton:hover
+{
+    transform: scale(1.1, 1.1);
+}
+
+#projectButtonLeftTop
+{
+    position: relative;
+    left: 500px;
+    top: 50px;
+    box-shadow: -6px 12px 4px rgba(0, 0, 0, .6);
+}
+
+#projectButtonTopRight
+{
+    position: relative;
+    left: 1000px;
+    bottom: 250px;
+    box-shadow: 6px 12px 4px rgba(0, 0, 0, .6);
+}
+
+#projectButtonBottomMiddle
+{
+    position: relative;
+    left: 750px;
+    bottom: 200px;
+    box-shadow: -6px 12px 4px rgba(0, 0, 0, .6);
+}
+
+.projectImage
+{
+    border: 3px solid black;
+    border-radius: 10px;
+    height: 220px;
+    width: 360px;
+}
+
+.projectText
+{
+    padding-top: 15px;
+}

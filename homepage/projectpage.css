@@ -1,0 +1,126 @@
+body
+{
+    background-color: black;
+}
+
+.center
+{
+    text-align: center;
+}
+
+#topText
+{
+    padding-top: 10px;
+}
+
+
+
+.DemoVid3
+{
+    height: 310px;
+    width: 560px;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.textBox
+{
+    word-wrap: break-word;
+    width: 400px;
+}
+
+.textBoxLargeCenter
+{
+    word-wrap: break-word;
+}
+
+
+.break
+{
+    width: 30%;
+    margin: 0 auto;
+    color: #F8FBE5;
+    padding: 20px;
+    clear: both
+}
+
+hr
+{
+    border-top: 3px solid #F8FBE5;
+    height: 3px;
+    background: #F8FBE5;
+}
+
+.leftAdjusted
+{
+    float: left;
+    margin-left: 485px;
+}
+
+.blogSection
+{
+    text-align: center;
+    margin: 0 auto;
+
+    clear: both;
+}
+
+.floatParent
+{
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+}
+
+.floatChild
+{
+    float: left;
+    width: 50%;
+}
+
+
+
+.refVid
+{
+    height: 200px;
+    width: 350px;
+    text-align: center;
+}
+
+.centerDiv
+{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    clear: both;
+}
+
+.DemoVid
+{
+    height: 310px;
+    width: 560px;
+    clear: both;
+}
+
+.collageImage
+{
+    height: 310px;
+    width: 445px;
+}
+
+.tallImageRef
+{
+    width: 250px;
+    height: 360px;
+}
+
+#blog
+{
+    font-family: 'Space Grotesk';
+    color: black;
+}

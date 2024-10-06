@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <link href="shared.css" rel="stylesheet">
+        <link href="home.css" rel="stylesheet">
+        <title>Home</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbarText">
+                <h1 id="textColorPink"><b>Aaron Brey</b></h1>
+                <h1 id="textColorOffWhite">Technical Designer</h1>
+                <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
+                <a href="abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+            </div>
+            <div class="navigationButtons">
+                <button class="singleNavButton" onclick="window.location.href='index.html';"><b>Home</b></button>
+                <button class="resumeNavButton"><b>Resume</b></button>
+                <button class="singleNavButton" onclick="window.location.href='about.html';"><b>About</b></button>
+            </div>
+
+            <script>
+                document.querySelector(".resumeNavButton").onclick = function() {
+                    window.open('OnlineResume.pdf', '_blank');
+                }
+            </script>
+        </header>
+        <main  class="homeMain">
+            <div>
+                <button class="projectButton" id="projectButtonLeftTop" onclick="window.location.href='trilingual.html';">
+                    <img src="TrilingualMainCapsule.png" class="projectImage" alt="Image of friendly cucumber looking alien creatures at a market">
+                    <span class="projectButtonText"><b><u>Trilingual</u></b></span>
+                </button>
+            </div>
+
+            <div>
+                <button class="projectButton" id="projectButtonTopRight" onclick="window.location.href='potion.html';">
+                    <img src="PotionMainCapsule.png" class="projectImage" alt="Image of broken bridge across water and rocks with various enemies">
+                    <span class="projectButtonText"><b><u>Potion Seller</u></b></span>
+                </button>
+            </div>
+
+            <div>
+                <button class="projectButton" id="projectButtonBottomMiddle" onclick="window.location.href='wip.html';">
+                    <img src="WIPMainCapsule.png" class="projectImage" alt="Image of concept art of game with character and raylib graphics library icon">
+                    <span class="projectButtonText"><b><u>Current WIP</u></b></span>
+                </button>
+            </div>
+        </main>
+    </body>
+</html>

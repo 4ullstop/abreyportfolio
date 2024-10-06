@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <link href="shared.css" rel="stylesheet">
+        <link href="projectpage.css" rel="stylesheet">
+        <title>About Me</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbarText">
+                <h1 id="textColorPink"><b>Aaron Brey</b></h1>
+                <h1 id="textColorOffWhite">Technical Designer</h1>
+                <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
+                <a href="abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+            </div>
+            <div class="navigationButtons">
+                <button class="singleNavButton" onclick="window.location.href='index.html';"><b>Home</b></button>
+                <button class="resumeNavButton"><b>Resume</b></button>
+                <button class="singleNavButton" onclick="window.location.href='about.html';"><b>About</b></button>
+            </div>
+
+            <script>
+                document.querySelector(".resumeNavButton").onclick = function() {
+                    window.open('OnlineResume.pdf', '_blank');
+                }
+            </script>
+        </header>
+        <main>
+            <div class="leftAdjusted" style="padding-top:60px">
+                <h3>About Me</h3>
+                <div class="textBox">
+                    <p>
+                        Born and raised onthe Eastern Shore of Maryland, I spent my early years
+                        fascinated with the communities that flourish from games. Whether it was by
+                        watching YouTube walk-throughs or running over to a friend's house to play the latest
+                        game that we were captivated by.
+                    </p>
+                    <p>
+                        I later became well versed and excited in the logic of coding language throughout middle and
+                        high school. Knowing that these wtwo fascinatiosn could be combined led me to the decision
+                        to pursue it as a career.
+                    </p>
+                    <p>
+                        Outside of games, music became a very important aspect of my life as well, earning
+                        multiple high achievements in the various solo and ensemble settings throughout high school.
+                        I also take an interest in other hobbies such as biking and 3D art modeling.
+                    </p>
+                </div>
+
+            </div>
+
+
+        </main>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Space+Grotesk");
+.topbar
+{
+    background-color: black;
+    height: 200px;
+    width: 100%;
+}
+
+.topbarText
+{
+    position: absolute;
+    left: 400px;
+    top: 30px;
+}
+
+
+
+#textColorPink
+{
+    color: #A8166D;
+}
+
+#textColorOffWhite
+{
+    color: #F8FBE5;
+}
+
+@font-face
+{
+    font-family: 'Space Grotesk';
+    src: url(https://fonts.googleapis.com/css?family=Space+Grotesk);
+}
+
+h1
+{
+    font-family: 'Space Grotesk';
+    color: #A8166D;
+}
+
+p
+{
+    font-family: 'Space Grotesk';
+    color: #F8FBE5;
+}
+
+.navigationButtons
+{
+    position: absolute;
+    right: 400px;
+    top: 80px;
+}
+
+.singleNavButton
+{
+    border-radius: 15px;
+    height: 50px;
+    width: 120px;
+    font-family: 'Space Grotesk';
+    background-color: #1A1F1F;
+    transition-duration: 0.4s;
+    border: 3px solid #F8FBE5;
+    color: #A8166D;
+}
+
+#spaceGrot
+{
+    font-family: 'Space Grotesk';
+}
+
+.resumeNavButton
+{
+    border-radius: 15px;
+    height: 50px;
+    width: 120px;
+    font-family: 'Space Grotesk';
+    background-color: #1A1F1F;
+    transition-duration: 0.4s;
+    border: 3px solid #F8FBE5;
+    color: #A8166D;
+}
+
+.resumeNavButton:hover
+{
+    background-color: #F8FBE5;
+    border: 3px solid #A8166D;
+}
+
+.singleNavButton:hover
+{
+    background-color: #F8FBE5;
+    border: 3px solid #A8166D;
+}
+
+h3
+{
+    font-family: 'Space Grotesk';
+    color: #A8166D;
+}
+
+h4
+{
+    font-family: 'Space Grotesk';
+    color: #A8166D;
+}
+
+li
+{
+    font-family: 'Space Grotesk';
+    color: #F8FBE5;
+}
+
+figcaption
+{
+    padding-top: 10px;
+    font-family: 'Space Grotesk';
+}
+
+
+

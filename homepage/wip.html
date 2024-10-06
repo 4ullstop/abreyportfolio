@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <link href="shared.css" rel="stylesheet">
+        <link href="projectpage.css" rel="stylesheet">
+        <title>Work In Progress</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbarText">
+                <h1><b>Aaron Brey</b></h1>
+                <h1 id="textColorOffWhite">Technical Designer</h1>
+                <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
+                <a href="abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+            </div>
+            <div class="navigationButtons">
+                <button class="singleNavButton" onclick="window.location.href='index.html';"><b>Home</b></button>
+                <button class="resumeNavButton"><b>Resume</b></button>
+                <button class="singleNavButton" onclick="window.location.href='about.html';"><b>About</b></button>
+            </div>
+
+            <script>
+                document.querySelector(".resumeNavButton").onclick = function() {
+                    window.open('OnlineResume.pdf', '_blank');
+                }
+            </script>
+        </header>
+
+        <main>
+            <div class="centerDiv"><h3>Project Submarine</h3></div>
+            <div class="centerDiv">
+                <video loop muted autoplay playsinline class="DemoVid"><source src="SubDemo.mp4"></video>
+            </div>
+
+            <div class="floatParent">
+                <div class="floatChild">
+                    <ul>
+                        <li>Platform: PC</li>
+                        <li>Software: Unreal Engine</li>
+                        <li>Creation Length: 1 year</li>
+                        <li>Playtime: 10-15 minutes</li>
+                        <li>Regular updates on <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="floatChild">
+                    <p>
+                        Project Submarine (Working Title) is a first-person, 2-4 player multiplayer game
+                        that promotes the best of team collaboration and chaos through intense AI encounters.
+                        Traverse through an underground facitilty controlled by a raging AI. Avoid roaming robots,
+                        traps and other inconveniences. Destroy all that is on your task list and escape!
+                    </p>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="leftAdjusted">
+
+            </div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:left">
+                    <h3>Responsibilities</h3>
+
+                    <ul>
+                        <li>Develop C++ code for:
+                            <ul>
+                                <li>Creating and destroying multiplayer sessions using Unreal Engine and Steam's session interface.</li>
+                                <li>Replicating:
+                                    <ul>
+                                        <li>Interaction.</li>
+                                        <li>Picking/Placing objects.</li>
+                                        <li>Using objects.</li>
+                                        <li>Death/spectator class.</li>
+                                        <li>Assigning tasks to all players.</li>
+                                        <li>Task/Mini-games.</li>
+                                        <li>Inconveniences caused by the Master AI.</li>
+                                        <li>Player animations.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Designing:
+                            <ul>
+                                <li>Gameplay loop.</li>
+                                <li>Tasks.</li>
+                                <li>AI inconveniences.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="floatChild">
+                    <a href="https://www.instagram.com/shea_arts12?utm_source=qr" target="_blank">
+                        <figure>
+                            <img src="SubImage01.png" class="tallImageRef" alt="Concept art image of the game with a little dude on the side">
+                            <figcaption id="textColorPink">Concept art courtesy of <b>Michael Mcleod</b></figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3>Unnamed Solo Project</h3></div>
+            <div class="floatParent">
+                <div class="floatChild">
+                    <ul>
+                        <li>Platform: PC</li>
+                        <li>Software: GCC, Raylib, Visual Studio Code</li>
+                        <li>Creation Length: 2 months</li>
+                        <li>Playtime: 3-5 minutes</li>
+                        <li>Link to <a href="https://github.com/4ullstop/raylibGame" target="_blank">GitHub Source Code</a></li>
+                        <li>Regular updates on <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="floatChild">
+                    <p>In this project, I am utilizing the GCC compiler along with Visual Studio
+                        Code and Raylib Graphics Library to develop a game using my own proprietary
+                        source code. The goal of this project is to learn the in depth development
+                        of games without the use of a premade engine.
+                    </p>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:left">
+                    <h3>Responsibilities</h3>
+
+                    <ul>
+                        <li>Develop C code using GCC, Visual Studio Code and Raylib Graphics Library</li>
+                        <li>Develop a personalized camera system</li>
+                        <li>Develop collision system and collision response code</li>
+                        <li>Design as short game with a simple mechanic to be implemented</li>
+                    </ul>
+                </div>
+                <div class="floatChild" style="padding: 10px;">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="VSCode.png" class="d-block w-100" alt="Image of C code inside of Visual Studio Code">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="RaylibImg.png" class="d-block w-100" alt="Image of the current state of the game using Raylib">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+        </main>
+    </body>
+</html>

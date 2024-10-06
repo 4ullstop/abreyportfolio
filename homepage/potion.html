@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <link href="shared.css" rel="stylesheet">
+        <link href="projectpage.css" rel="stylesheet">
+        <title>Project Potion</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbarText">
+                <h1 id="textColorPink"><b>Aaron Brey</b></h1>
+                <h1 id="textColorOffWhite">Technical Designer</h1>
+                <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
+                <a href="abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+            </div>
+            <div class="navigationButtons">
+                <button class="singleNavButton" onclick="window.location.href='index.html';"><b>Home</b></button>
+                <button class="resumeNavButton"><b>Resume</b></button>
+                <button class="singleNavButton" onclick="window.location.href='about.html';"><b>About</b></button>
+            </div>
+
+            <script>
+                document.querySelector(".resumeNavButton").onclick = function() {
+                    window.open('OnlineResume.pdf', '_blank');
+                }
+            </script>
+        </header>
+
+
+        <main>
+
+            <div class="centerDiv">
+                <h1>Potion Seller</h1>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="PotionDemo.mp4"></video>
+            </div>
+
+            <div class="floatParent">
+                <div class="floatChild">
+                    <ul>
+                        <li>Platform: PC</li>
+                        <li>Software: Unreal Engine, Github, Trello</li>
+                        <li>Creation Length: 6 months</li>
+                        <li>Playtime: 10 minutes</li>
+                    </ul>
+                </div>
+
+                <div class="floatChild">
+                    <p class="textBox">
+                        Potion Seller is a 2.5D side scroller where you play
+                        as the often over-looked, side character shop-keep
+                        the Potion Seller. As the only townsperson willing to stand agains the
+                        demon enemies, you must fight your way with potion-based combat
+                        to defeat the final boss known as "The General".
+                    </p>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="leftAdjusted">
+                <h3>Responsibilities</h3>
+
+                <ul>
+                    <li>Design and scripted enemy AI.</li>
+                    <li>Created and assigned team member's tasks.</li>
+                    <li>Designed and implemented a versatile camera system.</li>
+                    <li>Designed and scripted multiple potion types for players to use.</li>
+                </ul>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3>Ice Spike Potion</h3></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <video loop muted autoplay playsinline class="refVid"><source src="IceSpikeFlat.mp4"></video>
+                </div>
+
+                <div class="floatChild">
+                    <video loop muted autoplay playsinline class="refVid"><source src="IceSpikeHorizontal.mp4"></video>
+                </div>
+            </div>
+
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    Among many of the mechanics I created, the one I'm choosing to highlight here
+                    was one of the more difficult. According to our design, the potion needed to not
+                    only align with the ground but with any surface of varying degree.
+                </p>
+
+                <p class="textBoxLargeCenter">
+                    In order to produce the result you see above, I utilized multiple line traces.
+                    The first of which casts horizontally trying to determine if the ground in front of it
+                    is angled. If it is, then it spawns the next spike at the hit location taking the normal of the
+                    surface into account.
+                </p>
+
+                <p class="textBoxLargeCenter">
+                    The second line trace only occurs if the first trace didn't hit, in which case this one
+                    casts vertically to the ground to determine its location to spawn a new spike.
+                </p>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3>Camera System</h3></div>
+
+            <div class="centerDiv">
+                <video loop muted autoplay playsinline class="refVid"><source src="CameraMovingPres.mp4"></video>
+                <p>
+                    Another system I was in charge of was our camera system.
+                    This system worked by constantly getting the player's location and following
+                    it along the x and z-axis. To make it feel more juicy, camera lag was introduced via
+                    interping the current location to the last location.
+                </p>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <img src="CameraDetailsPanel.png" class="refVid" alt="Image of Unreal Engine's details panel for the camera system with various exposed elements">
+                </div>
+                <div class="floatChild" style="text-align:left; padding-top:40px">
+                    <p>
+                        To make the system more customizable for our level designers,
+                        items were exposed to the details panel such as distance from the player,
+                        height and lag speed.
+                    </p>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right; padding-top:40px">
+                    <p>
+                        We also discovered the need for the ability for the camera to be locked
+                        depending on combat encounters and so the system was adjusted as so. This
+                        is simply triggered by the player walking into the box and can be set back to the
+                        regular camera by having the player walk out of the box.
+                    </p>
+                </div>
+                <div class="floatChild">
+                    <video loop muted autoplay playsinline class="refVid"><source src="LockedCameraPres.mp4"></video>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="centerDiv"><h3>Enemies</h3></div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <p style="text-align:right">
+                        This is a demonstration of the Demon Bird enemy I helped design
+                        and was in charge of developing. This enemy proved to be difficult with
+                        it being in a perpetual state of flying. According to our documentation,
+                        the bird required two states.
+                    </p>
+                    <p style="text-align:right">
+                        The first of which was a mid air patrolling. In this state, the bird flys between
+                        two target points.
+                    </p>
+                    <p style="text-align:right">
+                        The next state was the attacking state which it entered when the player is in
+                        sight of the bird. In this state, it dives down to the player to cause damage only to return
+                        to a temporary patrolling state in order to give the player a break between its attacks.
+                    </p>
+                </div>
+                <div class="floatChild" style="padding-top:50px;">
+                    <video loop muted autoplay playsinline class="refVid"><source src="DemonBirdV2.mp4"></video>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent">
+                <div class="floatChild" style="padding-top:60px">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Goblin.mp4"></video>
+                </div>
+                <div class="floatChild">
+                    <p>
+                        This ground dwelling enemy with a long sphere is another enemy I helped design and was
+                        tasked with developing. Similar to the Demon Bird, the Goblin also had two states, one being
+                        patrolling and the other being attacking.
+                    </p>
+                    <p>
+                        During this patrolling state, the Goblin travels between two set patrol points.
+                    </p>
+                    <p>
+                        As for its attacking state, the Goblin rushes at the player only to quickly retreat
+                        a short distance from them. This behavior continues until either it or the player is dead
+                        as it will continue to chase the player. This retreat exists for the same reason it did
+                        in the Demon Bird, to give the player a break between attacks as we learned through playtesting
+                        the detrimental results of a continuous attack from an enemy.
+                    </p>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="centerDiv"><h4>Patrol System</h4></div>
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    I was also in charge of designing and developing the patrol system for the
+                    enemies enabling them to patrol between multiple target points.
+                </p>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="centerDiv"><h4>Boss State</h4></div>
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    All enemies were also equipped with a boss state which I developed for the purposes
+                    of allowing enemies to constantly charge at the player. This state is used during the fight
+                    with The General as one of the waves of attacks The General has.
+                </p>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+        </main>
+    </body>
+</html>
