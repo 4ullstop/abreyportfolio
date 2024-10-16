@@ -1,0 +1,12 @@
+<div class="floatChild" style="padding: 10px;">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="Images/WIP/VSCode.png" class="d-block w-100" alt="Image of C code inside of Visual Studio Code">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/WIP/RaylibImg.png" class="d-block w-100" alt="Image of the current state of the game using Raylib">
+                            </div>
+                        </div>
+                    </div>
+                </div>
