@@ -16,6 +16,7 @@
                 <h1 id="textColorOffWhite">Technical Designer</h1>
                 <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
                 <a href="abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+                <a href="https://github.com/4ullstop" target="_blank"><img src="gitImg.png" width="25" height="25" alt="Image of GitHub Logo"></a>
             </div>
             <div class="navigationButtons">
                 <button class="singleNavButton" onclick="window.location.href='index.html';"><b>Home</b></button>
@@ -31,9 +32,9 @@
         </header>
 
         <main>
-            <div class="centerDiv"><h3>Unnamed Solo Project</h3></div>
+            <div class="centerDiv"><h3>Scene (Working Title)</h3></div>
             <div class="centerDiv">
-                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/CollisionDemo.mp4"></video>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/TwoWindows.mp4"></video>
             </div>
             <div class="floatParent">
                 <div class="floatChild">
@@ -41,16 +42,17 @@
                         <li>Platform: PC</li>
                         <li>Software: GCC, Raylib, Visual Studio Code</li>
                         <li>Creation Length: 2 months</li>
-                        <li>Playtime: 3-5 minutes</li>
                         <li>Link to <a href="https://github.com/4ullstop/raylibGame" target="_blank">GitHub Source Code</a></li>
                         <li>Regular updates on <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank">LinkedIn</a></li>
                     </ul>
                 </div>
                 <div class="floatChild">
-                    <p>In this project, I am utilizing the GCC compiler along with Visual Studio
-                        Code and Raylib Graphics Library to develop a game using my own proprietary
-                        source code. The goal of this project is to learn the in depth development
-                        of games without the use of a commerical engine.
+                    <p>
+                        Scene (Working Title) is a first person puzzler in which your main interaction
+                        consists of solving puzzles of buttons which consist of various rules. The other 
+                        main interaction the player will have is the ability to play between two different windows at once.
+                        Through the utilization of multiple executables and shared memory, the player will have to navigate between two  
+                        different worlds at the same time with challenges spread across both windows.
                     </p>
                 </div>
             </div>
@@ -67,55 +69,59 @@
                         <li>Develop collision system and collision response code</li>
                         <li>Create a workflow for loading and unloading models from render</li>
                         <li>Develop an interaction system using a custom collision based raycast</li>
+                        <li>Develop a system to utilize two windows and shared memory</li>
                         <li>Design and develop button selection puzzle mechanic</li>
                     </ul>
                 </div>
                 
             </div>
 
-            <div class="break"> <hr> </div>
+          
+
+            <div style="clear:both"></div>
+            <div class="break"></div>
+
+            <div class="centerDiv"><h3>Shared Memory</h3></div>
+
+            <div class="floatParent" style="text-align:left">
+                <div class="floatChild" style="text-align:center">
+                    <img src="Images/WIP/sharedMemImg.png" class="refVid" alt="Image of side by side games with shared puzzle pieces">
+                </div>
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        Given the unusual design of this game, I had to devise some interesting techniques to achieve the multi-window gameplay. 
+                        In order to have two windows communicate with each other, each process needed to open up a portion of memory to share 
+                        between each other. Then through this memory, location of the puzzle's cursor, the state of the other game, and other factors
+                        that determine gameplay.
+                    </p>
+                    
+                </div>
+            </div>
+            
+            <div style="clear:both"></div>
+            <div class="break"></div>
+
             <div class="centerDiv"><h3>Collision Detection</h3></div>
 
             <div class="floatParent" style="text-align:center">
-                <div class="floatChild" style="text-align:left">
+                <div class="floatChild" style="text-align:right">
                     <p>
                         This project has started with the creation of a custom collision
                         detection and response algorithm which I spent a couple of days studying and translating
                         from the article <a href="https://www.peroxide.dk/papers/collision/collision.pdf" target="_blank">Improved Collision detection and Response by Kasper Fauerby.</a>
                     </p>
-                    <p>
-                        The collision detection has a couple of steps:
-                    </p>
-                    <ol>
-                        <li>First we construct a triangle from the given vertices of the mesh</li>
-                        <li>Then we find the time at which the sphere could intersect with the plane</li>
-                        <li>We then check if the collision occurs inside of the triangle or whether it's on the edge or vertice</li>
-                        <li>If it ends up colliding with the edge or vertice we do a sweep across them</li>
-                    </ol>
-                    <p>Doing these calculations tells us whether or not we will intersect and at what point and distance</p>
                 </div>
-                <div style="padding-top:100px;">
-                    <img src="Images/WIP/SimplifiedDemo.png" class="refVid" alt="Simplified diagram of collision detection system">
+
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/CollisionDemo.mp4"></video>
                 </div>
             </div>
 
-            <div style="clear:both"></div>
+            
 
-            <div class="floatParent" style="text-align:center">
-                <div class="floatChild" style="text-align:left">
-                    <p>
-                        Next we run our collision response algorithm if the detection algorithm discovers a potential hit.
-                    </p>
-                    <ol style="text-align:left">
-                        <li>We start by moving our player very close to the intersection point</li>
-                        <li>We then calculate what is known as a sliding plane (a very long plane that is perpendicular to the triangle the player hit)</li>
-                        <li>We then adjust and project the player's velocity according to this sliding plane</li>
-                    </ol>
-                </div>
-                <div style="padding-top:10px;">
-                    <img src="Images/WIP/SimplifiedDemo_02.png" class="refVid" alt="Simplified diagram of collision response system">
-                </div>
-            </div>
+            
+         
+            
 
             <div class="break"> <hr> </div>
             
