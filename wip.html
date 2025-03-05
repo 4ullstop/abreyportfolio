@@ -15,7 +15,7 @@
                 <h1><b>Aaron Brey</b></h1>
                 <h1 id="textColorOffWhite">Technical Designer</h1>
                 <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
-                <a href="abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+                <a href="mailto: abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
                 <a href="https://github.com/4ullstop" target="_blank"><img src="gitImg.png" width="25" height="25" alt="Image of GitHub Logo"></a>
             </div>
             <div class="navigationButtons">
@@ -90,9 +90,11 @@
                 <div class="floatChild" style="text-align:left">
                     <p>
                         Given the unusual design of this game, I had to devise some interesting techniques to achieve the multi-window gameplay. 
-                        In order to have two windows communicate with each other, each process needed to open up a portion of memory to share 
-                        between each other. Then through this memory, location of the puzzle's cursor, the state of the other game, and other factors
-                        that determine gameplay.
+                        In order to have two windows communicate with each other, each process needed to open up a portion of shared memory. 
+                        Then through this memory, items such as the location of the puzzle's cursor or the state of the other game were shared through a struct.
+                        The system is fitted to know which puzzle shares with which as well as keep around information such as buttons that have been submitted or where the 
+                        cursor was when the player exits the puzzle. This code can be found <a href="https://github.com/4ullstop/raylibGame/tree/main/shared">here</a>
+                        in the memory_setup.c and sharedpuzzle.c files.
                     </p>
                     
                 </div>
@@ -107,8 +109,10 @@
                 <div class="floatChild" style="text-align:right">
                     <p>
                         This project has started with the creation of a custom collision
-                        detection and response algorithm which I spent a couple of days studying and translating
+                        detection and response algorithm which studied and translated 
                         from the article <a href="https://www.peroxide.dk/papers/collision/collision.pdf" target="_blank">Improved Collision detection and Response by Kasper Fauerby.</a>
+                        You can view the code for it <a href="https://github.com/4ullstop/raylibGame/tree/main/collision" target="_blank">here</a> in the collisionplane.c and detectcollision.c
+                        files.
                     </p>
                 </div>
 
@@ -125,27 +129,28 @@
 
             <div class="break"> <hr> </div>
             
-            <div class="centerDiv"><h3>Project Submarine</h3></div>
+            <div class="centerDiv"><h3>Handmade Hero</h3></div>
             <div class="centerDiv">
-                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/SubDemo.mp4"></video>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/HHDemo.mp4"></video>
             </div>
 
             <div class="floatParent">
                 <div class="floatChild">
                     <ul>
-                        <li>Platform: PC</li>
-                        <li>Software: Unreal Engine</li>
-                        <li>Creation Length: 1 year</li>
-                        <li>Playtime: 10-15 minutes</li>
-                        <li>Regular updates on <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank">LinkedIn</a></li>
+                        <li>Platform: Windows</li>
+                        <li>Software: Windows API, DirectXInput, DirectSound</li>
+                        <li><a href="https://github.com/4ullstop/HandmadeHero" target="_blank">GitHub Repo</a></li>
+                        
                     </ul>
                 </div>
                 <div class="floatChild">
                     <p>
-                        Project Submarine (Working Title) is a first-person, 2-4 player multiplayer game
-                        that promotes the best of team collaboration and chaos through intense AI encounters.
-                        Traverse through an underground facitilty controlled by a raging AI. Avoid roaming robots,
-                        traps and other inconveniences. Destroy all that is on your task list and escape!
+                        Handmade Hero is an online series developed by Casey Muratori. With this project, I am developing along side him 
+                        a 2D adventure game made entirely from scratch. Including things such as writing/copying bitmaps, to writing into  
+                        the ciruclar sound buffers for DirectSound, and using DirectXInput to capture various input devices. Muratori also provides
+                        insight into how to write C++ code in a less Object-Oriented way and provides various techniques into abstracting the various
+                        platform layers. My goal is to get to a place where I feel comfortable enough to write a game on my own using the various techniques
+                        and strategies gained from the project.
                     </p>
                 </div>
             </div>
@@ -156,44 +161,38 @@
 
             </div>
 
-            <div class="floatParent" style="text-align:center">
-                <div class="floatChild" style="text-align:left">
-                    <h3>Responsibilities</h3>
+            <div class="centerDiv"><h3>Writing to the Screen</h3></div>
 
-                    <ul>
-                        <li>Develop C++ code for:
-                            <ul>
-                                <li>Creating and destroying multiplayer sessions using Unreal Engine and Steam's session interface.</li>
-                                <li>Replicating:
-                                    <ul>
-                                        <li>Interaction.</li>
-                                        <li>Picking/Placing objects.</li>
-                                        <li>Using objects.</li>
-                                        <li>Death/spectator class.</li>
-                                        <li>Assigning tasks to all players.</li>
-                                        <li>Task/Mini-games.</li>
-                                        <li>Inconveniences caused by the Master AI.</li>
-                                        <li>Player animations.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>Designing:
-                            <ul>
-                                <li>Gameplay loop.</li>
-                                <li>Tasks.</li>
-                                <li>AI inconveniences.</li>
-                            </ul>
-                        </li>
-                    </ul>
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        Writing to an open window in Windows requires several operations. We first created a buffer to store our bitmap in.
+                        We then write to this buffer every frame, writing to each individual pixel a bitshifted value to create a gradient texture. After which
+                        we then copy this buffer into the window using BitBlt. 
+                    </p>
                 </div>
-                <div class="floatChild">
-                    <a href="https://www.instagram.com/shea_arts12?utm_source=qr" target="_blank">
-                        <figure>
-                            <img src="Images/WIP/SubImage01.png" class="tallImageRef" alt="Concept art image of the game with a little dude on the side">
-                            <figcaption id="textColorPink">Concept art courtesy of <b>Michael Mcleod</b></figcaption>
-                        </figure>
-                    </a>
+
+                <div class="floatChild" style="text-align:center">
+                    <img src="Images/WIP/HHBitBlt.png" class="refVid" alt="Image of bitmap produced by Windows code">
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+            <div class="break"></div>
+
+            <div class="centerDiv"><h3>Writing Sound</h3></div>
+
+            <div class="floatParent" style="text-align:left">
+                <div class="floatChild" style="text-align:center">
+                    <img src="Images/WIP/DirectSoundDiagram.png" class="refVid" alt="A diagram of how to write data into DirectSound buffer">
+                </div>
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        Writing to DirectSound is a little more difficult. In order to produce just a sine wave, we have to tell Windows to
+                        open a circular sound buffer for us to write into. We then have to compute multiple calculations to ensure we are always writing 
+                        ahead of our playcursor as well as how to compute the split between the beginning and end of the circular buffer.
+                    </p>
+                    
                 </div>
             </div>
 
