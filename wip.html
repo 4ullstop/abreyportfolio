@@ -32,27 +32,26 @@
         </header>
 
         <main>
-            <div class="centerDiv"><h3>Scene (Working Title)</h3></div>
+            <div class="centerDiv"><h3>Jumper Proj</h3></div>
             <div class="centerDiv">
-                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/TwoWindows.mp4"></video>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/JumperDemo.mp4"></video>
             </div>
             <div class="floatParent">
                 <div class="floatChild">
                     <ul>
                         <li>Platform: PC</li>
-                        <li>Software: GCC, Raylib, Visual Studio Code</li>
+                        <li>Tools: WinAPI, C++</li>
                         <li>Creation Length: 2 months</li>
-                        <li>Link to <a href="https://github.com/4ullstop/raylibGame" target="_blank">GitHub Source Code</a></li>
+                        <li>Link to <a href="https://github.com/4ullstop/jumperProj" target="_blank">GitHub Source Code</a></li>
                         <li>Regular updates on <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank">LinkedIn</a></li>
                     </ul>
                 </div>
                 <div class="floatChild">
                     <p>
-                        Scene (Working Title) is a first person puzzler in which your main interaction
-                        consists of solving puzzles of buttons which consist of various rules. The other 
-                        main interaction the player will have is the ability to play between two different windows at once.
-                        Through the utilization of multiple executables and shared memory, the player will have to navigate between two  
-                        different worlds at the same time with challenges spread across both windows.
+                        JumperProj is a 2D precision platformer developed entirely from scratch using C++ and WinAPI. Players will use 
+                        a unique set of controls with the goal of getting to the top, think Jump King meets Celeste. Various level mechanics 
+                        exist to impede and push the player forward through the level. Every jump is calculated, be careful or you could find yourself back 
+                        at the bottom! 
                     </p>
                 </div>
             </div>
@@ -64,13 +63,17 @@
                     <h3>Responsibilities</h3>
 
                     <ul>
-                        <li>Develop C code using GCC, Visual Studio Code and Raylib Graphics Library</li>
-                        <li>Develop a personalized camera system</li>
-                        <li>Develop collision system and collision response code</li>
-                        <li>Create a workflow for loading and unloading models from render</li>
-                        <li>Develop an interaction system using a custom collision based raycast</li>
-                        <li>Develop a system to utilize two windows and shared memory</li>
-                        <li>Design and develop button selection puzzle mechanic</li>
+                        <li>Implement XAudio2 API for the purpose of producing sound effects and music.</li>
+                        <li>Develop a system for editing, saving and loading a tile map system.</li>
+                        <li>Create a unique set of controls for the player to master in their journey to the top.</li>
+                        <li>Design C++ code using various techniques including:
+                            <ul>
+                                <li>Functional Programming.</li>
+                                <li>Function Macros/DLL Loading.</li>
+                                <li>Platform and game independent code.</li>
+                                <li>Writing the usage code first.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 
@@ -81,124 +84,108 @@
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Shared Memory</h3></div>
-
-            <div class="floatParent" style="text-align:left">
-                <div class="floatChild" style="text-align:center">
-                    <img src="Images/WIP/sharedMemImg.png" class="refVid" alt="Image of side by side games with shared puzzle pieces">
-                </div>
-                <div class="floatChild" style="text-align:left">
-                    <p>
-                        Given the unusual design of this game, I had to devise some interesting techniques to achieve the multi-window gameplay. 
-                        In order to have two windows communicate with each other, each process needed to open up a portion of shared memory. 
-                        Then through this memory, items such as the location of the puzzle's cursor or the state of the other game were shared through a struct.
-                        The system is fitted to know which puzzle shares with which as well as keep around information such as buttons that have been submitted or where the 
-                        cursor was when the player exits the puzzle. This code can be found <a href="https://github.com/4ullstop/raylibGame/tree/main/shared">here</a>
-                        in the memory_setup.c and sharedpuzzle.c files.
-                    </p>
-                    
-                </div>
+            <div class="centerDiv"><h3>Editing, saving and loading</h3></div>
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    After rewriting the tile map system, I knew my ability to quickly get through this project was going to require the ability
+                    to edit, save and load a tile map from a file. 
+                </p>
             </div>
-            
-            <div style="clear:both"></div>
-            <div class="break"></div>
-
-            <div class="centerDiv"><h3>Collision Detection</h3></div>
 
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild" style="text-align:right">
                     <p>
-                        This project has started with the creation of a custom collision
-                        detection and response algorithm which studied and translated 
-                        from the article <a href="https://www.peroxide.dk/papers/collision/collision.pdf" target="_blank">Improved Collision detection and Response by Kasper Fauerby.</a>
-                        You can view the code for it <a href="https://github.com/4ullstop/raylibGame/tree/main/collision" target="_blank">here</a> in the collisionplane.c and detectcollision.c
-                        files.
+                        Keeping similar to the way the rest of the program was designed, each function is declared as a function pointer in the game code 
+                        for the platform independent code to define and simply send the result of the function back out to the game code. This is important
+                        so that if it ever were to come to porting, all I would need to do is redefine the platform independent implementation of opening, reading and
+                        writing to files.
                     </p>
                 </div>
 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/CollisionDemo.mp4"></video>
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FunctionMacros.mp4"></video>
                 </div>
             </div>
 
-            
+            <div style="clear:both"></div>
 
-            
+            <div class="floatParent" style="text-align:center">
+                
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/LeftClickDemo.mp4"></video>
+                </div>
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        I am able to edit the file by simply pressing left click on a tile within the tile map which changes the value of the tile.
+                        As for the reading of the file, that's done through a simple file open, write loop. At the start of the program, the 
+                        file is loaded from the previous save file kept in a separate directory.
+                    </p>
+                </div>
+
+                
+            </div>
+                
          
             
+            <div style="clear:both"></div>
+            <div class="break"></div>
 
-            <div class="break"> <hr> </div>
-            
-            <div class="centerDiv"><h3>Handmade Hero</h3></div>
-            <div class="centerDiv">
-                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/HHDemo.mp4"></video>
-            </div>
-
-            <div class="floatParent">
-                <div class="floatChild">
-                    <ul>
-                        <li>Platform: Windows</li>
-                        <li>Software: Windows API, DirectXInput, DirectSound</li>
-                        <li><a href="https://github.com/4ullstop/HandmadeHero" target="_blank">GitHub Repo</a></li>
-                        
-                    </ul>
-                </div>
-                <div class="floatChild">
-                    <p>
-                        Handmade Hero is an online series developed by Casey Muratori. With this project, I am developing along side him 
-                        a 2D adventure game made entirely from scratch. Including things such as writing/copying bitmaps, to writing into  
-                        the ciruclar sound buffers for DirectSound, and using DirectXInput to capture various input devices. Muratori also provides
-                        insight into how to write C++ code in a less Object-Oriented way and provides various techniques into abstracting the various
-                        platform layers. My goal is to get to a place where I feel comfortable enough to write a game on my own using the various techniques
-                        and strategies gained from the project.
-                    </p>
-                </div>
-            </div>
-
-            <div class="break"> <hr> </div>
-
-            <div class="leftAdjusted">
-
-            </div>
-
-            <div class="centerDiv"><h3>Writing to the Screen</h3></div>
+            <div class="centerDiv"><h3>XAudio2</h3></div>
 
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild" style="text-align:right">
                     <p>
-                        Writing to an open window in Windows requires several operations. We first created a buffer to store our bitmap in.
-                        We then write to this buffer every frame, writing to each individual pixel a bitshifted value to create a gradient texture. After which
-                        we then copy this buffer into the window using BitBlt. 
+                        For the sound within the project, I decided to use XAudio2 as it was a bit more updated and simpler to work with  
+                        compared to DirectSound. I start by loading in the important API functions in dynamically (this way we avoid linking directly to the library).
+                        As according the the MSDN documentation, several functions are called in order to initialize our sound including functions for initializing the XAudio interface,
+                        and creating a source voice.
                     </p>
                 </div>
 
-                <div class="floatChild" style="text-align:center">
-                    <img src="Images/WIP/HHBitBlt.png" class="refVid" alt="Image of bitmap produced by Windows code">
+                <div class="floatChild">
+                    <img src="Images/WIP/XAudio2MSDN.png" class="refVid" alt="Image of Unreal Engine's details panel for the camera system with various exposed elements">
                 </div>
             </div>
+
+           
+            <div style="clear:both"></div>
+            
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <img src="Images/WIP/SoundLoading.png" class="refVid" alt="Image of Unreal Engine's details panel for the camera system with various exposed elements">
+                </div>
+                
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        For the sound within the project, I decided to use XAudio2 as it was a bit more updated and simpler to work with  
+                        compared to DirectSound. I start by loading in the important API functions in dynamically (this way we avoid linking directly to the library).
+                        As according the the MSDN documentation, several functions are called in order to initialize our sound including the initialization of the interface and 
+                        creating a source voice.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="clear:both"></div>
+
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        In order to play an actual sound, the buffer needs to be filled. This is done in the game code as it is something that can be 
+                        abstracted out of the platform layer. Through the exported functions in the DLL, the platform layer calls to fill the buffer
+                        in the game code. The game code will then fill the buffer which the platform layer then uses to output an actual sound using XAUDIO2_BUFFER
+                        struct and the SubmitSourceBuffer function.
+                    </p>
+                </div>
+
+                <div class="floatChild">
+                    <img src="Images/WIP/AudioBuffer.png" class="refVid" alt="Image of Unreal Engine's details panel for the camera system with various exposed elements">
+                </div>
+            </div>
+            
 
             <div style="clear:both"></div>
             <div class="break"></div>
-
-            <div class="centerDiv"><h3>Writing Sound</h3></div>
-
-            <div class="floatParent" style="text-align:left">
-                <div class="floatChild" style="text-align:center">
-                    <img src="Images/WIP/DirectSoundDiagram.png" class="refVid" alt="A diagram of how to write data into DirectSound buffer">
-                </div>
-                <div class="floatChild" style="text-align:left">
-                    <p>
-                        Writing to DirectSound is a little more difficult. In order to produce just a sine wave, we have to tell Windows to
-                        open a circular sound buffer for us to write into. We then have to compute multiple calculations to ensure we are always writing 
-                        ahead of our playcursor as well as how to compute the split between the beginning and end of the circular buffer.
-                    </p>
-                    
-                </div>
-            </div>
-
-            <div class="break"> <hr> </div>
-
-            
             
         </main>
     </body>

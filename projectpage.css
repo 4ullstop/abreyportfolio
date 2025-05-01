@@ -90,6 +90,13 @@ hr
     text-align: center;
 }
 
+.refImg_01
+{
+    height: 200px;
+    width: 320px;
+    text-align: center;
+}
+
 .centerDiv
 {
     margin: auto;
