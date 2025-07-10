@@ -32,26 +32,25 @@
         </header>
 
         <main>
-            <div class="centerDiv"><h3>Jumper Proj</h3></div>
+            <div class="centerDiv"><h3>Apart</h3></div>
             <div class="centerDiv">
-                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/JumperDemo.mp4"></video>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/ApartDemo.mp4"></video>
             </div>
             <div class="floatParent">
                 <div class="floatChild">
                     <ul>
                         <li>Platform: PC</li>
                         <li>Tools: WinAPI, C++</li>
-                        <li>Creation Length: 2 months</li>
+                        <li>Creation Length: 2 Weeks</li>
                         <li>Link to <a href="https://github.com/4ullstop/jumperProj" target="_blank">GitHub Source Code</a></li>
                         <li>Regular updates on <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank">LinkedIn</a></li>
                     </ul>
                 </div>
                 <div class="floatChild">
                     <p>
-                        JumperProj is a 2D precision platformer developed entirely from scratch using C++ and WinAPI. Players will use 
-                        a unique set of controls with the goal of getting to the top, think Jump King meets Celeste. Various level mechanics 
-                        exist to impede and push the player forward through the level. Every jump is calculated, be careful or you could find yourself back 
-                        at the bottom! 
+                        Apart is a 2D top-down sokobon style game created using what was left over from the Jumper Engine. Through this project, I will continue
+                        to iterate over my current engine as well as develop a short game with it's meaning baked into the gameplay. I have spent a lot of time 
+                        researching this type of design and believe I am finally ready to start implementing my ideas! 
                     </p>
                 </div>
             </div>
@@ -63,17 +62,14 @@
                     <h3>Responsibilities</h3>
 
                     <ul>
-                        <li>Implement XAudio2 API for the purpose of producing sound effects and music.</li>
-                        <li>Develop a system for editing, saving and loading a tile map system.</li>
-                        <li>Create a unique set of controls for the player to master in their journey to the top.</li>
-                        <li>Design C++ code using various techniques including:
+                        <li>Develop/Redevelop engine tools including:</li>
                             <ul>
-                                <li>Functional Programming.</li>
-                                <li>Function Macros/DLL Loading.</li>
-                                <li>Platform and game independent code.</li>
-                                <li>Writing the usage code first.</li>
+                                <li>Tile selection/level editing.</li>
+                                <li>Debug vs Game mode.</li>
                             </ul>
-                        </li>
+                        <li>Design and develop various mechanics that reflect the stages of relationships.</li>
+                        <li>Utilize a functional <a href="https://caseymuratori.com/blog_0015" target="_blank">compression oriented</a> programming style to prioritize productivity.</li>
+                        <li>Develop a floating based movement system which utilizes mouse cursor position to determine direction.</li>
                     </ul>
                 </div>
                 
@@ -84,26 +80,26 @@
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Editing, saving and loading</h3></div>
+            <div class="centerDiv"><h3>Engine Improvements</h3></div>
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                    After rewriting the tile map system, I knew my ability to quickly get through this project was going to require the ability
-                    to edit, save and load a tile map from a file. 
+                    There were multiple systems implemented in Jumper Proj that I decided needed some improvements in order to make developing levels easier.
                 </p>
             </div>
+
+            
 
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild" style="text-align:right">
                     <p>
-                        Keeping similar to the way the rest of the program was designed, each function is declared as a function pointer in the game code 
-                        for the platform independent code to define and simply send the result of the function back out to the game code. This is important
-                        so that if it ever were to come to porting, all I would need to do is redefine the platform independent implementation of opening, reading and
-                        writing to files.
+                        The first of which was re-designing part of the system for selecting tiles. In order to keep the input for the mechanics and the input for 
+                        map building separate, I implemented a simple system that would allow me to switch between editing and playing the game by pressing 'Tab'.
+                        I also managed to create a simple indicator to help me determine when I was in and out of debug mode. 
                     </p>
                 </div>
 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FunctionMacros.mp4"></video>
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/DebugModeDemo.mp4"></video>
                 </div>
             </div>
 
@@ -112,13 +108,12 @@
             <div class="floatParent" style="text-align:center">
                 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/LeftClickDemo.mp4"></video>
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/CursorDemo.mp4"></video>
                 </div>
                 <div class="floatChild" style="text-align:left">
                     <p>
-                        I am able to edit the file by simply pressing left click on a tile within the tile map which changes the value of the tile.
-                        As for the reading of the file, that's done through a simple file open, write loop. At the start of the program, the 
-                        file is loaded from the previous save file kept in a separate directory.
+                        Another improvement I made was how I switched between different tiles during placement. I updated it so that the cursor would change to the tile 
+                        I was placing, which made it much easier to see exactly what tile was being used—unlike before, where I was basically guessing and checking.
                     </p>
                 </div>
 
@@ -130,61 +125,44 @@
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>XAudio2</h3></div>
+            <div class="centerDiv"><h3>Programming Style</h3></div>
 
-            <div class="floatParent" style="text-align:center">
-                <div class="floatChild" style="text-align:right">
-                    <p>
-                        For the sound within the project, I decided to use XAudio2 as it was a bit more updated and simpler to work with  
-                        compared to DirectSound. I start by loading in the important API functions in dynamically (this way we avoid linking directly to the library).
-                        As according the the MSDN documentation, several functions are called in order to initialize our sound including functions for initializing the XAudio interface,
-                        and creating a source voice.
-                    </p>
-                </div>
-
-                <div class="floatChild">
-                    <img src="Images/WIP/XAudio2MSDN.png" class="refVid" alt="Image of Unreal Engine's details panel for the camera system with various exposed elements">
-                </div>
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    As observed from previous projects, keeping structure and style for code is incredibly important. With that being said, I find that
+                    the best way to program for my solo projects is to keep everything functional and programming with the purpose of compressing only when absolutely necessary.
+                    Through this, I've found a few key benefits:
+                </p>
             </div>
 
+            <div style="clear:both"></div>
+
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    First of which being, by not spending time trying to immediately comparmentalize things into functions, I can focus solely on writing code that works.
+                    This also makes my code incredibly flexible which allows me change things with ease when I iterate on a design idea. 
+                </p>
+            </div>
            
             <div style="clear:both"></div>
             
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild">
-                    <img src="Images/WIP/SoundLoading.png" class="refVid" alt="Image of Unreal Engine's details panel for the camera system with various exposed elements">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/ApartComparisonDemo.mp4"></video>
                 </div>
                 
                 <div class="floatChild" style="text-align:left">
                     <p>
-                        For the sound within the project, I decided to use XAudio2 as it was a bit more updated and simpler to work with  
-                        compared to DirectSound. I start by loading in the important API functions in dynamically (this way we avoid linking directly to the library).
-                        As according the the MSDN documentation, several functions are called in order to initialize our sound including the initialization of the interface and 
-                        creating a source voice.
+                        As the most recent example, when developing two entities, the player and the ball, I decided I wanted to switch things up and make it so the player
+                        is the ball/has the same properties as the ball in terms of movement. In my structure, ball_entity was a child of entity with player being this type.
+                        There were a couple of functions which the ball used for its movement which I needed to swap to allow the player to have. This was a simple 10 minute 
+                        fix with a couple of swaps of data types and suddenly I had the characteristics I was looking for.
                     </p>
                 </div>
             </div>
             
             <div style="clear:both"></div>
 
-
-            <div class="floatParent" style="text-align:center">
-                <div class="floatChild" style="text-align:right">
-                    <p>
-                        In order to play an actual sound, the buffer needs to be filled. This is done in the game code as it is something that can be 
-                        abstracted out of the platform layer. Through the exported functions in the DLL, the platform layer calls to fill the buffer
-                        in the game code. The game code will then fill the buffer which the platform layer then uses to output an actual sound using XAUDIO2_BUFFER
-                        struct and the SubmitSourceBuffer function.
-                    </p>
-                </div>
-
-                <div class="floatChild">
-                    <img src="Images/WIP/AudioBuffer.png" class="refVid" alt="Image of Unreal Engine's details panel for the camera system with various exposed elements">
-                </div>
-            </div>
-            
-
-            <div style="clear:both"></div>
             <div class="break"></div>
             
         </main>
