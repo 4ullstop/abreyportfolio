@@ -120,7 +120,33 @@
                 
             </div>
                 
-         
+            <div style="clear:both"></div>
+            <div class="break"></div>
+
+            <div class="centerDiv"><h3>Memory Pools</h3></div>
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    Using an approach known as memory pools, I allocate
+                    a large chunk of memory up front, and then use the space to push any struct I need. The memory is then released at the end of the 
+                    program as opposed to releasing as according to the lifetime of a specific object. This in turn makes memory management simple to use.
+                </p>
+            </div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        I took things a step further when implementing my 'redo' button using a fixed size pool. Whenever the player presses a movement button, their location is recorded
+                        in a linked list which is entirely allocated at the start of the program. When adding to the list, we check another list of 'freed' locations which if there are any 
+                        we grab from and use to 'allocate' a new node. When the player presses the 'redo' button and the state is set to whichever state existed in the most recent node, 
+                        we then 'free' the node by placing it in the list of 'freed' locations. 
+                    </p>
+                </div>
+
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/RedoInputDemo.mp4"></video>
+                </div>
+            </div>
+
             
             <div style="clear:both"></div>
             <div class="break"></div>
