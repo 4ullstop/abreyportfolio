@@ -13,7 +13,7 @@
         <header class="topbar">
             <div class="topbarText">
                 <h1><b>Aaron Brey</b></h1>
-                <h1 id="textColorOffWhite">Technical Designer</h1>
+                <h1 id="textColorOffWhite">Game Developer</h1>
                 <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
                 <a href="mailto: abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
                 <a href="https://github.com/4ullstop" target="_blank"><img src="gitImg.png" width="25" height="25" alt="Image of GitHub Logo"></a>
@@ -32,25 +32,23 @@
         </header>
 
         <main>
-            <div class="centerDiv"><h3>Apart</h3></div>
+            <div class="centerDiv"><h3>Adventures into DirectX11</h3></div>
             <div class="centerDiv">
-                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/ApartDemo.mp4"></video>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/WIPMainGIF.mp4"></video>
             </div>
             <div class="floatParent">
                 <div class="floatChild">
                     <ul>
                         <li>Platform: PC</li>
-                        <li>Tools: WinAPI, C++</li>
-                        <li>Creation Length: 2 Weeks</li>
-                        <li>Link to <a href="https://github.com/4ullstop/Apart" target="_blank">GitHub Source Code</a></li>
-                        <li>Regular updates on <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank">LinkedIn</a></li>
+                        <li>Tools: WinAPI, C++, DirectX11, RADDebugger, Emacs, RenderDoc.</li>
+                        <li>Link to <a href="https://github.com/4ullstop/Dx11Practice" target="_blank">GitHub Source Code</a></li>
                     </ul>
                 </div>
                 <div class="floatChild">
                     <p>
-                        Apart is a 2D top-down sokobon style game created using what was left over from the Jumper Engine. Through this project, I will continue
-                        to iterate over my current engine as well as develop a short game with it's meaning baked into the gameplay. I have spent a lot of time 
-                        researching this type of design and believe I am finally ready to start implementing my ideas! 
+                        As part of my continued learning and exploration in the game development field, I've taken it upon myself to start learning 3D
+                        and have chosen DirectX to be my graphics API of choice. This project also includes the further development of my current set of 
+                        tools for development. This includes creating librarys for my memory pool allocation and file loading methods.
                     </p>
                 </div>
             </div>
@@ -62,14 +60,11 @@
                     <h3>Responsibilities</h3>
 
                     <ul>
-                        <li>Develop/Redevelop engine tools including:</li>
-                            <ul>
-                                <li>Tile selection/level editing.</li>
-                                <li>Debug vs Game mode.</li>
-                            </ul>
-                        <li>Design and develop various mechanics that reflect the stages of relationships.</li>
-                        <li>Utilize a functional <a href="https://caseymuratori.com/blog_0015" target="_blank">compression oriented</a> programming style to prioritize productivity.</li>
-                        <li>Develop a floating based movement system which utilizes mouse cursor position to determine direction.</li>
+                        <li>Further developing and utilizing custom made memory allocation library.</li>
+                        <li>Follow Microsoft Documentation for the setup of 3D graphics pipeline.</li>
+                        <li>Develop a custom OBJ file loader to load files into Direct3D pipeline.</li>
+                        <li>Developing a voxel chunk editable size and resolution.</li>
+                        <li>Implementing an arc ball camera.</li>
                     </ul>
                 </div>
                 
@@ -80,10 +75,12 @@
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Engine Improvements</h3></div>
+            <div class="centerDiv"><h3>Developing the Voxels</h3></div>
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                    There were multiple systems implemented in Jumper Proj that I decided needed some improvements in order to make developing levels easier.
+                    The major design idea for this game is to be able to create sculptures which you can place in a sculpture garden. 
+                    After some back and forth on deciding how I was going to actually implement this, I decided on developing a voxel based 
+                    world which you can edit blocks of cubes.
                 </p>
             </div>
 
@@ -92,14 +89,15 @@
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild" style="text-align:right">
                     <p>
-                        The first of which was re-designing part of the system for selecting tiles. In order to keep the input for the mechanics and the input for 
-                        map building separate, I implemented a simple system that would allow me to switch between editing and playing the game by pressing 'Tab'.
-                        I also managed to create a simple indicator to help me determine when I was in and out of debug mode. 
+                        My first implementation of voxels was through cube instancing. I started by creating a cube 'model' out of vertices and indices which
+                        I could supply to the DirectX pipeline. I then created an instance buffer based on this cube and drew the instanced cubes. It was then
+                        that I realized that this would not be an effective solution to drawing a block of cubes because I wanted to be able to only draw the faces that 
+                        were visible on the outside.
                     </p>
                 </div>
 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/DebugModeDemo.mp4"></video>
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/BlenderInstancedCubeDemo.mp4"></video>
                 </div>
             </div>
 
@@ -108,86 +106,124 @@
             <div class="floatParent" style="text-align:center">
                 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/CursorDemo.mp4"></video>
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FacesOnlyDemo.mp4"></video>
                 </div>
                 <div class="floatChild" style="text-align:left">
                     <p>
-                        Another improvement I made was how I switched between different tiles during placement. I updated it so that the cursor would change to the tile 
-                        I was placing, which made it much easier to see exactly what tile was being used—unlike before, where I was basically guessing and checking.
+                        So I started from the beginning, back to the vertices and indices, and this time I created one large array of all of our cubes in the chunk.
+                        I then determined the placement of all of these voxels based on dimensions which I could specify. When initializing each cube, I then check to see 
+                        whether each face in the cube should be drawn based on the direction of the face and if the cube in that direction was inside the number of voxels in the chunk.
                     </p>
                 </div>
 
                 
             </div>
+
+            <div style="clear:both"></div>  
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        All of this voxel information is then sent to the DirectX pipeline where I created a singular vertex buffer for our cube, then iterated 
+                        through each cube to create separate index buffers for only the necessary drawn voxels and to only include the necssary indices of the faces which face outward from the 
+                        chunk. Then in my draw call, I grab each voxel I'm going to draw and its information and use a mapped subresource to edit a transformation
+                        matrix in the vertex shader for each voxel cube to have it placed in a location according to the voxel location as defined previously.
+                    </p>
+                </div>
+
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FadeCheckerDemo.mp4"></video>
+                </div>
+            </div>
                 
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Memory Pools</h3></div>
+            <div class="centerDiv"><h3>Arc Ball Camera</h3></div>
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                    Using an approach known as memory pools, I allocate
-                    a large chunk of memory up front, and then use the space to push any struct I need. The memory is then released at the end of the 
-                    program as opposed to releasing as according to the lifetime of a specific object. This in turn makes memory management simple to use.
+                    Next according to my design intent, I found it necessary to implement an arc ball camera so that players better edit the voxel chunk.
                 </p>
             </div>
 
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild" style="text-align:right">
                     <p>
-                        I took things a step further when implementing my 'redo' button using a fixed size pool. Whenever the player presses a movement button, their location is recorded
-                        in a linked list which is entirely allocated at the start of the program. When adding to the list, we check another list of 'freed' locations which if there are any 
-                        we grab from and use to 'allocate' a new node. When the player presses the 'redo' button and the state is set to whichever state existed in the most recent node, 
-                        we then 'free' the node by placing it in the list of 'freed' locations. 
+                        This took a couple of attempts. I started by doing some R&D looking at various ways to implement this camera. According to the 
+                        <a href="https://courses.cms.caltech.edu/cs171/assignments/hw3/hw3-notes/notes-hw3.html" target="_blank">first resource</a></li>
+                        I found, Arc ball works by taking the calculated coordinates of the mouse to world space, and then mapping them onto a sphere and calculating
+                        the angle of rotation between the coordinates of the starting click and the current location of the mouse coordinates.
                     </p>
                 </div>
 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/RedoInputDemo.mp4"></video>
+                    <img src="Images/WIP/ArcBalSphere.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
                 </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/WIPMainGIF.mp4"></video>
+                </div>
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        I then found <a href="https://doc.magnum.graphics/magnum/examples-arcball.html" target="_blank">this source</a></li>
+                        which had code that I found I could translate into the DirectX pipeline. Using the method I loosely described above, 
+                        and through the use of quaternion math (which I took the time to understand via 
+                        <a href="https://math.umd.edu/~immortal/MATH431/book/ch_quaternions.pdf" target="_blank">this wonderful source</a></li>), 
+                        I successfully implemented the camera.
+                    </p>
+                </div>
+
+                
             </div>
 
             
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Programming Style</h3></div>
+            <div class="centerDiv"><h3>Further Improvements to Memory</h3></div>
 
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                    As observed from previous projects, keeping structure and style for code is incredibly important. With that being said, I find that
-                    the best way to program for my solo projects is to keep everything functional and programming with the purpose of compressing only when absolutely necessary.
-                    Through this, I've found a few key benefits:
+                    As I continued to develop this game, I've also been spending time improving the various APIs I created for any program I make. The most
+                    imporant changes being in my Memory pool/arena code. The most recent part I've been developing has been on debug vectors, as I now need to
+                    allow for editing of the voxel chunk based on where the mouse is clicked and where that correlates to the voxel chunk. My implementation of this 
+                    requried the implementation of linked lists.
                 </p>
             </div>
 
-            <div style="clear:both"></div>
-
-            <div class="centerDiv">
-                <p class="textBoxLargeCenter">
-                    First of which being, by not spending time trying to immediately comparmentalize things into functions, I can focus solely on writing code that works.
-                    This also makes my code incredibly flexible which allows me change things with ease when I iterate on a design idea. 
-                </p>
-            </div>
-           
             <div style="clear:both"></div>
             
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/ApartComparisonDemo.mp4"></video>
+                    <img src="Images/WIP/MemoryExample.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
                 </div>
                 
                 <div class="floatChild" style="text-align:left">
                     <p>
-                        As the most recent example, when developing two entities, the player and the ball, I decided I wanted to switch things up and make it so the player
-                        is the ball/has the same properties as the ball in terms of movement. In my structure, ball_entity was a child of entity with player being this type.
-                        There were a couple of functions which the ball used for its movement which I needed to swap to allow the player to have. This was a simple 10 minute 
-                        fix with a couple of swaps of data types and suddenly I had the characteristics I was looking for.
+                        To continue to align with the memory allocation techniques I developed previously, linked lists need to utilize memory arenas and could not 
+                        allocate outside of this. I had previously written this ability in an older project however, this new implementation had a greater catch, the 
+                        data which went into the linked list had to be vague enough that it could be used for any struct I wanted.
                     </p>
                 </div>
             </div>
             
             <div style="clear:both"></div>
+
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                        To allow for this, in the intialization step of the list you are required to define the size of the data which will be occupying 
+                        the list. Then in the actual implementation I take the arena used for the list, fill it out with as many nodes as I can. Then inside 
+                        of this pushed data, I essentially create another arena, where I iterate through and push a node value and then right next to it
+                        I place it's data such that the data and the node are side by side in memory. This is also where I initialize the node's next value 
+                        based on the next location that a node will be located (which is after the location of our data).
+                </p>
+            </div>
+            </div>
 
             <div class="break"></div>
             
