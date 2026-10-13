@@ -32,23 +32,23 @@
         </header>
 
         <main>
-            <div class="centerDiv"><h3>Adventures into DirectX11</h3></div>
+            <div class="centerDiv"><h3>Sailing</h3></div>
             <div class="centerDiv">
-                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/WIPMainGIF.mp4"></video>
+                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/sailing_demo.mp4"></video>
             </div>
             <div class="floatParent">
                 <div class="floatChild">
                     <ul>
                         <li>Platform: PC</li>
                         <li>Tools: WinAPI, C++, DirectX11, RADDebugger, Emacs, RenderDoc.</li>
-                        <li>Link to <a href="https://github.com/4ullstop/Dx11Practice" target="_blank">GitHub Source Code</a></li>
+                        <li>Link to <a href="https://github.com/4ullstop/Sail" target="_blank">GitHub Source Code</a></li>
                     </ul>
                 </div>
                 <div class="floatChild">
                     <p>
-                        As part of my continued learning and exploration in the game development field, I've taken it upon myself to start learning 3D
-                        and have chosen DirectX to be my graphics API of choice. This project also includes the further development of my current set of 
-                        tools for development. This includes creating librarys for my memory pool allocation and file loading methods.
+                        In this project I've been developing a game where you sail around an ocean using realistic-ish sailing mechanics
+                        to avoid obstacles and sail from island to island. The project is currently in it's prototyping stage with time being spent
+                        fleshing out the sailing mechanics and various obstacles with the goal of developing a minimum viable product.
                     </p>
                 </div>
             </div>
@@ -60,11 +60,12 @@
                     <h3>Responsibilities</h3>
 
                     <ul>
-                        <li>Further developing and utilizing custom made memory allocation library.</li>
-                        <li>Follow Microsoft Documentation for the setup of 3D graphics pipeline.</li>
-                        <li>Develop a custom OBJ file loader to load files into Direct3D pipeline.</li>
-                        <li>Developing a voxel chunk editable size and resolution.</li>
-                        <li>Implementing an arc ball camera.</li>
+                        <li>Design and develop sailing mechanics.</li>
+                        <li>Flesh out custom API's for game/platform frameworks, memory management, and file loading.</li>
+                        <li>Implement textures and materials from file formats to be loaded onto meshes.</li>
+                        <li>Separate platform and gameplay code to avoid immediate mode rendering.</li>
+                        <li>Develop a custom platform abstracted math library utilizing SIMD for performance benefits.</li>
+                        <li>Simulate waves using Sum of Sines with accurate lighting.</li>
                     </ul>
                 </div>
                 
@@ -75,12 +76,14 @@
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Developing the Voxels</h3></div>
+            <div class="centerDiv"><h3>Math, math and more math</h3></div>
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                    The major design idea for this game is to be able to create sculptures which you can place in a sculpture garden. 
-                    After some back and forth on deciding how I was going to actually implement this, I decided on developing a voxel based 
-                    world which you can edit blocks of cubes.
+                    Development of this project started with a reimplementation of a math library. Since a big part of this development is to create separated game and platform specific
+                    code, it was imperative that I have a math library that supports this. Rather than just using DxMath (a specific library used for Windows programs) or using 
+                    one found online, I thought it would be beneficial to acutally take the time to understand what was going on under the hood of these librarys. So with DXMath as a reference,
+                    I started to develop my own SIMD math library for the functions that were the most important in rendering a 3D scene. Devlopment of this library took about a months time 
+                    and I was developing the basic game structure alongside it.
                 </p>
             </div>
 
@@ -89,15 +92,14 @@
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild" style="text-align:right">
                     <p>
-                        My first implementation of voxels was through cube instancing. I started by creating a cube 'model' out of vertices and indices which
-                        I could supply to the DirectX pipeline. I then created an instance buffer based on this cube and drew the instanced cubes. It was then
-                        that I realized that this would not be an effective solution to drawing a block of cubes because I wanted to be able to only draw the faces that 
-                        were visible on the outside.
+                        This math library needed to be fast for the calculations I intended to perform. This meant utilizing performance intrinsics known as Single Instruction, Multiple Data or SIMD.
+                        This is essentially when your processor takes some sort of math calculation, an addition for example, and applies it to mulitple data points. Since 3D is based in Vector Spaces,
+                        the mathematical manipulation of multiple pieces of data (or floating point values) is incredibly commonplace and therefore house a wide variety of applications for this process.
                     </p>
                 </div>
 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/BlenderInstancedCubeDemo.mp4"></video>
+                    <img src="Images/WIP/SIMD_IMPLEMENTATION.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
                 </div>
             </div>
 
@@ -106,58 +108,44 @@
             <div class="floatParent" style="text-align:center">
                 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FacesOnlyDemo.mp4"></video>
+                    <img src="Images/WIP/SIMD_IMG.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
                 </div>
                 <div class="floatChild" style="text-align:left">
                     <p>
-                        So I started from the beginning, back to the vertices and indices, and this time I created one large array of all of our cubes in the chunk.
-                        I then determined the placement of all of these voxels based on dimensions which I could specify. When initializing each cube, I then check to see 
-                        whether each face in the cube should be drawn based on the direction of the face and if the cube in that direction was inside the number of voxels in the chunk.
+                        For a very brief explanation as to how this works, imagine we want to add two vectors together. While it varies depending on the type of CPU architecture you have,
+                        you would call into an intrinsic function like _mm_add_ps(v1, v2), where the parameters are two _mm128 (two 4D vectors). Then your computer takes the two parameters,
+                        loads them into registers and in a single parallel execution, adds the values together to produce the sum.
                     </p>
                 </div>
 
                 
             </div>
 
-            <div style="clear:both"></div>  
-
-            <div class="floatParent" style="text-align:center">
-                <div class="floatChild" style="text-align:right">
-                    <p>
-                        All of this voxel information is then sent to the DirectX pipeline where I created a singular vertex buffer for our cube, then iterated 
-                        through each cube to create separate index buffers for only the necessary drawn voxels and to only include the necssary indices of the faces which face outward from the 
-                        chunk. Then in my draw call, I grab each voxel I'm going to draw and its information and use a mapped subresource to edit a transformation
-                        matrix in the vertex shader for each voxel cube to have it placed in a location according to the voxel location as defined previously.
-                    </p>
-                </div>
-
-                <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FadeCheckerDemo.mp4"></video>
-                </div>
-            </div>
                 
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Arc Ball Camera</h3></div>
+            <div class="centerDiv"><h3>Wavessssss</h3></div>
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                    Next according to my design intent, I found it necessary to implement an arc ball camera so that players better edit the voxel chunk.
+                    Now onto OnlineResume of the most exciting things I implemented in the past couple of weeks, the visual representation of waves. A huge thanks to
+                    Acerola (who if you haven't heard of I definetly recommend checking out) for a really wonderful guide and explanation of this implementation whose video 
+                    I will link <a href="https://www.youtube.com/watch?v=PH9q0HNBjT4" target="_blank">here.</a> For a brief summary of how I implemented it accordingly:
                 </p>
             </div>
 
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild" style="text-align:right">
                     <p>
-                        This took a couple of attempts. I started by doing some R&D looking at various ways to implement this camera. According to the 
-                        <a href="https://courses.cms.caltech.edu/cs171/assignments/hw3/hw3-notes/notes-hw3.html" target="_blank">first resource</a></li>
-                        I found, Arc ball works by taking the calculated coordinates of the mouse to world space, and then mapping them onto a sphere and calculating
-                        the angle of rotation between the coordinates of the starting click and the current location of the mouse coordinates.
+                        Waves are bascially sine waves, but one sine wave is very predictable and doesn't look very good. So instead we make multiple sine waves, with different 
+                        amplitudes, frequencies, speeds and wave lengths, and then add them all together based on a point in time. Then we take this value we get from this addition,
+                        and add it to the height of the vertex. The image to the right shows the loop inside of my vertex shader which utilizes a couple of buffers such as direction, frequency,
+                        and phase of some sine wave values which I randomly generated on the CPU.
                     </p>
                 </div>
 
                 <div class="floatChild" style="text-align:center">
-                    <img src="Images/WIP/ArcBalSphere.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
+                    <img src="Images/WIP/VertexShaderImplementation.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
                 </div>
             </div>
 
@@ -166,33 +154,48 @@
             <div class="floatParent" style="text-align:center">
                 
                 <div class="floatChild" style="text-align:center">
-                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/WIPMainGIF.mp4"></video>
+                    <img src="Images/WIP/grid_of_verts.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
                 </div>
                 <div class="floatChild" style="text-align:left">
                     <p>
-                        I then found <a href="https://doc.magnum.graphics/magnum/examples-arcball.html" target="_blank">this source</a></li>
-                        which had code that I found I could translate into the DirectX pipeline. Using the method I loosely described above, 
-                        and through the use of quaternion math (which I took the time to understand via 
-                        <a href="https://math.umd.edu/~immortal/MATH431/book/ch_quaternions.pdf" target="_blank">this wonderful source</a></li>), 
-                        I successfully implemented the camera.
+                        Now that we have a giant plane moving based on the sum of sines calculation, it doesn't look very good unless we introduce lighting. Before we even light something, 
+                        we must get some information from our ocean grid. The most important being the normals of the faces. To get our normals, we refer back to our sum of sines, but now
+                        we calculate the partial derivative of the sum of sines calculation to get our tangent and binormal vectors which we then cross to get the normal vector. Refering back
+                        to the loop above, the dYdx and dYdz values are what we use to get the binormal and tangent vectors respectively.
                     </p>
                 </div>
 
                 
+            </div>
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        Then after transfering that information to our Pixel Shader, we can use it to calculate lighting values such as our labertian diffuse, specular reflections, fresnel
+                        and our reflections. For times sake, skipping over the simpler implementations of diffuse, specular and fresnel, I'm gonna talk about the more interesting implementation
+                        of reflections. 
+                        <br>
+                        <br>
+                        My implementation utilizes whats known as cubemap reflections. Taking the reflection vector of our View vector and the Normal from our plane, we get a vector that points out into 
+                        space. We then use this vector to reference a point in a cube map, in this case our skybox which we grab the color from and then add it to our final output with 
+                        the rest of our lighting calculations.
+                    </p>
+                </div>
+
+                <div class="floatChild" style="text-align:center">
+                    <img src="Images/WIP/cubemap_ex.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
+                </div>
             </div>
 
             
             <div style="clear:both"></div>
             <div class="break"></div>
 
-            <div class="centerDiv"><h3>Further Improvements to Memory</h3></div>
+            <div class="centerDiv"><h3>Post processed fog</h3></div>
 
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                    As I continued to develop this game, I've also been spending time improving the various APIs I created for any program I make. The most
-                    imporant changes being in my Memory pool/arena code. The most recent part I've been developing has been on debug vectors, as I now need to
-                    allow for editing of the voxel chunk based on where the mouse is clicked and where that correlates to the voxel chunk. My implementation of this 
-                    requried the implementation of linked lists.
+                    To improve my visuals as well as hide the seams created by my skybox and the edge of the waves, I found it important to implement 
+                    a post process fog to simulate subsurface scattering.
                 </p>
             </div>
 
@@ -200,14 +203,14 @@
             
             <div class="floatParent" style="text-align:center">
                 <div class="floatChild">
-                    <img src="Images/WIP/MemoryExample.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
+                    <img src="Images/WIP/fog_pp.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
                 </div>
                 
                 <div class="floatChild" style="text-align:left">
                     <p>
-                        To continue to align with the memory allocation techniques I developed previously, linked lists need to utilize memory arenas and could not 
-                        allocate outside of this. I had previously written this ability in an older project however, this new implementation had a greater catch, the 
-                        data which went into the linked list had to be vague enough that it could be used for any struct I wanted.
+                        Post processing is an affect in 3D graphics where you apply your affects to the texture of the image you render to. So, rather than using the simple 
+                        implementation of my pipelines swap chain of rendering directly to a back buffer and presenting that back buffer, what I do instead is write to a 2D
+                        texture, then through a separate pixel shader, apply my effects to the texture and then present the edited 2D texture to the Output Merger.
                     </p>
                 </div>
             </div>
@@ -216,11 +219,8 @@
 
             <div class="centerDiv">
                 <p class="textBoxLargeCenter">
-                        To allow for this, in the intialization step of the list you are required to define the size of the data which will be occupying 
-                        the list. Then in the actual implementation I take the arena used for the list, fill it out with as many nodes as I can. Then inside 
-                        of this pushed data, I essentially create another arena, where I iterate through and push a node value and then right next to it
-                        I place it's data such that the data and the node are side by side in memory. This is also where I initialize the node's next value 
-                        based on the next location that a node will be located (which is after the location of our data).
+                        Fog is a fairly simple implentation. Using our Depth Stencil inside of our Pixel Shader, we can grab a distance which we can than use a simple exponential
+                        fog formula to calculate the amount of fog per pixel.
                 </p>
             </div>
             </div>

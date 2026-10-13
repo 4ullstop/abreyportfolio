@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <link href="shared.css" rel="stylesheet">
+        <link href="projectpage.css" rel="stylesheet">
+        <title>Work In Progress</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbarText">
+                <h1><b>Aaron Brey</b></h1>
+                <h1 id="textColorOffWhite">Game Programmer</h1>
+                <a href="https://www.linkedin.com/in/aaron-brey-282231279/" target="_blank"><img src="in.png" width="25" height="25"  alt="Image of Linkedin Logo"></a>
+                <a href="mailto: abrey2o3@gmail.com" target="_blank"><img src="mail.png" width="35" height="25" alt="Image of universal email logo"></a>
+                <a href="https://github.com/4ullstop" target="_blank"><img src="gitImg.png" width="25" height="25" alt="Image of GitHub Logo"></a>
+            </div>
+            <div class="navigationButtons">
+                <button class="singleNavButton" onclick="window.location.href='index.html';"><b>Home</b></button>
+                <button class="resumeNavButton"><b>Resume</b></button>
+                <button class="singleNavButton" onclick="window.location.href='about.html';"><b>About</b></button>
+            </div>
+
+            <script>
+                document.querySelector(".resumeNavButton").onclick = function() {
+                    window.open('OnlineResume.pdf', '_blank');
+                }
+            </script>
+        </header>
+
+        <main>
+            <div class="centerDiv"><h3>Sailing</h3></div>
+            <div class="centerDiv">
+                <video loop muted autoplay playsinline class="DemoVid"><source src="Videos/WIP/WIPMainGIF.mp4"></video>
+            </div>
+            <div class="floatParent">
+                <div class="floatChild">
+                    <ul>
+                        <li>Platform: PC</li>
+                        <li>Tools: WinAPI, C++, DirectX11, RADDebugger, Emacs, RenderDoc.</li>
+                        <li>Link to <a href="https://github.com/4ullstop/Sail" target="_blank">GitHub Source Code</a></li>
+                    </ul>
+                </div>
+                <div class="floatChild">
+                    <p>
+                        In this project I've been developing a game where you sail around an ocean using realistic-ish sailing mechanics
+                        to avoid obstacles and sail from island to island. The project is currently in it's prototyping stage with time being spent
+                        fleshing out the sailing mechanics and various obstacles with the goal of developing a minimum viable product.
+                    </p>
+                </div>
+            </div>
+
+            <div class="break"> <hr> </div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:left">
+                    <h3>Responsibilities</h3>
+
+                    <ul>
+                        <li>Design and develop sailing mechanics.</li>
+                        <li>Flesh out custom API's for game/platform frameworks, memory management, and file loading.</li>
+                        <li>Implement textures and materials from file formats to be loaded onto meshes.</li>
+                        <li>Separate platform and gameplay code to avoid immediate mode rendering.</li>
+                        <li>Develop a custom platform abstracted math library utilizing SIMD for performance benefits.</li>
+                    </ul>
+                </div>
+                
+            </div>
+
+          
+
+            <div style="clear:both"></div>
+            <div class="break"></div>
+
+            <div class="centerDiv"><h3>Developing the Voxels</h3></div>
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    The major design idea for this game is to be able to create sculptures which you can place in a sculpture garden. 
+                    After some back and forth on deciding how I was going to actually implement this, I decided on developing a voxel based 
+                    world which you can edit blocks of cubes.
+                </p>
+            </div>
+
+            
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        My first implementation of voxels was through cube instancing. I started by creating a cube 'model' out of vertices and indices which
+                        I could supply to the DirectX pipeline. I then created an instance buffer based on this cube and drew the instanced cubes. It was then
+                        that I realized that this would not be an effective solution to drawing a block of cubes because I wanted to be able to only draw the faces that 
+                        were visible on the outside.
+                    </p>
+                </div>
+
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/BlenderInstancedCubeDemo.mp4"></video>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FacesOnlyDemo.mp4"></video>
+                </div>
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        So I started from the beginning, back to the vertices and indices, and this time I created one large array of all of our cubes in the chunk.
+                        I then determined the placement of all of these voxels based on dimensions which I could specify. When initializing each cube, I then check to see 
+                        whether each face in the cube should be drawn based on the direction of the face and if the cube in that direction was inside the number of voxels in the chunk.
+                    </p>
+                </div>
+
+                
+            </div>
+
+            <div style="clear:both"></div>  
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        All of this voxel information is then sent to the DirectX pipeline where I created a singular vertex buffer for our cube, then iterated 
+                        through each cube to create separate index buffers for only the necessary drawn voxels and to only include the necssary indices of the faces which face outward from the 
+                        chunk. Then in my draw call, I grab each voxel I'm going to draw and its information and use a mapped subresource to edit a transformation
+                        matrix in the vertex shader for each voxel cube to have it placed in a location according to the voxel location as defined previously.
+                    </p>
+                </div>
+
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/FadeCheckerDemo.mp4"></video>
+                </div>
+            </div>
+                
+            <div style="clear:both"></div>
+            <div class="break"></div>
+
+            <div class="centerDiv"><h3>Arc Ball Camera</h3></div>
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    Next according to my design intent, I found it necessary to implement an arc ball camera so that players better edit the voxel chunk.
+                </p>
+            </div>
+
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild" style="text-align:right">
+                    <p>
+                        This took a couple of attempts. I started by doing some R&D looking at various ways to implement this camera. According to the 
+                        <a href="https://courses.cms.caltech.edu/cs171/assignments/hw3/hw3-notes/notes-hw3.html" target="_blank">first resource</a></li>
+                        I found, Arc ball works by taking the calculated coordinates of the mouse to world space, and then mapping them onto a sphere and calculating
+                        the angle of rotation between the coordinates of the starting click and the current location of the mouse coordinates.
+                    </p>
+                </div>
+
+                <div class="floatChild" style="text-align:center">
+                    <img src="Images/WIP/ArcBalSphere.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="floatParent" style="text-align:center">
+                
+                <div class="floatChild" style="text-align:center">
+                    <video loop muted autoplay playsinline class="refVid"><source src="Videos/WIP/WIPMainGIF.mp4"></video>
+                </div>
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        I then found <a href="https://doc.magnum.graphics/magnum/examples-arcball.html" target="_blank">this source</a></li>
+                        which had code that I found I could translate into the DirectX pipeline. Using the method I loosely described above, 
+                        and through the use of quaternion math (which I took the time to understand via 
+                        <a href="https://math.umd.edu/~immortal/MATH431/book/ch_quaternions.pdf" target="_blank">this wonderful source</a></li>), 
+                        I successfully implemented the camera.
+                    </p>
+                </div>
+
+                
+            </div>
+
+            
+            <div style="clear:both"></div>
+            <div class="break"></div>
+
+            <div class="centerDiv"><h3>Further Improvements to Memory</h3></div>
+
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                    As I continued to develop this game, I've also been spending time improving the various APIs I created for any program I make. The most
+                    imporant changes being in my Memory pool/arena code. The most recent part I've been developing has been on debug vectors, as I now need to
+                    allow for editing of the voxel chunk based on where the mouse is clicked and where that correlates to the voxel chunk. My implementation of this 
+                    requried the implementation of linked lists.
+                </p>
+            </div>
+
+            <div style="clear:both"></div>
+            
+            <div class="floatParent" style="text-align:center">
+                <div class="floatChild">
+                    <img src="Images/WIP/MemoryExample.png" class="refVid" alt="Paper diagram of the levels of communication between objects in the game">
+                </div>
+                
+                <div class="floatChild" style="text-align:left">
+                    <p>
+                        To continue to align with the memory allocation techniques I developed previously, linked lists need to utilize memory arenas and could not 
+                        allocate outside of this. I had previously written this ability in an older project however, this new implementation had a greater catch, the 
+                        data which went into the linked list had to be vague enough that it could be used for any struct I wanted.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="clear:both"></div>
+
+            <div class="centerDiv">
+                <p class="textBoxLargeCenter">
+                        To allow for this, in the intialization step of the list you are required to define the size of the data which will be occupying 
+                        the list. Then in the actual implementation I take the arena used for the list, fill it out with as many nodes as I can. Then inside 
+                        of this pushed data, I essentially create another arena, where I iterate through and push a node value and then right next to it
+                        I place it's data such that the data and the node are side by side in memory. This is also where I initialize the node's next value 
+                        based on the next location that a node will be located (which is after the location of our data).
+                </p>
+            </div>
+            </div>
+
+            <div class="break"></div>
+            
+        </main>
+    </body>
+</html>
